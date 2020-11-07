@@ -1,7 +1,7 @@
 package testtask.teamvoy.mappers;
 
-import com.test.task.dto.ItemRequestDto;
-import com.test.task.model.Item;
+import testtask.teamvoy.dto.ItemRequestDto;
+import testtask.teamvoy.model.Item;
 
 public class ItemMapper {
 

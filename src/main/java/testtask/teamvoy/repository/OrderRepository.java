@@ -1,7 +1,7 @@
 package testtask.teamvoy.repository;
 
-import com.test.task.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
+import testtask.teamvoy.model.Order;
 
 public interface OrderRepository extends JpaRepository<Order, Long> {
 }

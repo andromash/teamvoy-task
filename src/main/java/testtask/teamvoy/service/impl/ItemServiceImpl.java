@@ -1,6 +1,6 @@
 package testtask.teamvoy.service.impl;
 
-import com.test.task.service.ItemService;
+import testtask.teamvoy.service.ItemService;
 
 public class ItemServiceImpl implements ItemService {
 }
