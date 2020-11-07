@@ -20,4 +20,9 @@ public class ItemServiceImpl implements ItemService {
     public Item findById(Long id) {
         return repository.findById(id).orElseThrow(NoSuchElementException::new);
     }
+
+    @Override
+    public Item save(Item item) {
+        return repository.save(item);
+    }
 }

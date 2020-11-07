@@ -5,4 +5,6 @@ import testtask.teamvoy.model.Item;
 public interface ItemService {
 
     Item findById(Long id);
+
+    Item save(Item item);
 }

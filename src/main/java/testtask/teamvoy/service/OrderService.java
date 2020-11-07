@@ -8,4 +8,6 @@ public interface OrderService {
     Order save(Order order);
 
     List<Order> getAll();
+
+    void deleteOld();
 }
