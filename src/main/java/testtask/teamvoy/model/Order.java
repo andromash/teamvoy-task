@@ -19,7 +19,7 @@ public class Order {
     private Integer quantity;
 
     @ManyToOne
-    private Item items;
+    private Item item;
 
     public Long getId() {
         return id;
@@ -45,11 +45,11 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Item getItems() {
-        return items;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItems(Item items) {
-        this.items = items;
+    public void setItem(Item item) {
+        this.item = item;
     }
 }

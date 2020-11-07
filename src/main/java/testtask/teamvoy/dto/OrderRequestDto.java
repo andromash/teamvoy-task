@@ -2,7 +2,7 @@ package testtask.teamvoy.dto;
 
 public class OrderRequestDto {
     private Long price;
-    private Long quantity;
+    private Integer quantity;
     private Long itemId;
 
     public Long getPrice() {
@@ -13,11 +13,11 @@ public class OrderRequestDto {
         this.price = price;
     }
 
-    public Long getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
