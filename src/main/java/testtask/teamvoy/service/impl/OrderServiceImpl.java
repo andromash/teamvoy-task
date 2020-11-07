@@ -6,6 +6,8 @@ import testtask.teamvoy.model.Order;
 import testtask.teamvoy.repository.OrderRepository;
 import testtask.teamvoy.service.OrderService;
 
+import java.util.List;
+
 @Service
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
@@ -18,5 +20,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order save(Order order) {
         return orderRepository.save(order);
+    }
+
+    @Override
+    public List<Order> getAll() {
+        return orderRepository.findAll();
     }
 }

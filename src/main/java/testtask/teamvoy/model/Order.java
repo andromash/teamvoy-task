@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "orders")
@@ -20,6 +21,8 @@ public class Order {
 
     @ManyToOne
     private Item item;
+
+    private LocalDateTime time;
 
     public Long getId() {
         return id;
@@ -51,5 +54,13 @@ public class Order {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
     }
 }

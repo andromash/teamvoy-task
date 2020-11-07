@@ -1,14 +1,20 @@
 package testtask.teamvoy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import testtask.teamvoy.dto.OrderRequestDto;
+import testtask.teamvoy.dto.OrderResponseDto;
 import testtask.teamvoy.mappers.OrderMapper;
 import testtask.teamvoy.model.Order;
 import testtask.teamvoy.service.OrderService;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/orders")
@@ -25,6 +31,15 @@ public class OrderController {
     @PostMapping
     public void createOrder(@RequestBody OrderRequestDto orderRequestDto) {
         Order order = orderMapper.mapDtoToOrder(orderRequestDto);
+        order.setTime(LocalDateTime.now());
         orderService.save(order);
     }
+
+    @GetMapping
+    public List<OrderResponseDto> getAll() {
+        return orderService.getAll().stream()
+                .map(orderMapper::mapOrderToDto)
+                .collect(Collectors.toList());
+    }
+
 }
