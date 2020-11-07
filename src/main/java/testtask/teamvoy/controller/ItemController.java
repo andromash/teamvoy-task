@@ -1,5 +1,7 @@
 package testtask.teamvoy.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,11 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import testtask.teamvoy.dto.ItemRequestDto;
 import testtask.teamvoy.dto.ItemResponseDto;
 import testtask.teamvoy.mappers.ItemMapper;
-import testtask.teamvoy.model.Item;
 import testtask.teamvoy.service.ItemService;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/items")
