@@ -41,5 +41,4 @@ public class OrderController {
                 .map(orderMapper::mapOrderToDto)
                 .collect(Collectors.toList());
     }
-
 }
