@@ -16,7 +16,7 @@ public class ItemMapper {
         return item;
     }
 
-    public ItemResponseDto mapItemTODto(Item item) {
+    public ItemResponseDto mapItemToDto(Item item) {
         ItemResponseDto itemResponseDto = new ItemResponseDto();
         itemResponseDto.setId(item.getId());
         itemResponseDto.setName(item.getName());

@@ -9,11 +9,9 @@ import org.mockito.MockitoAnnotations;
 import testtask.teamvoy.model.Item;
 import testtask.teamvoy.model.Order;
 import testtask.teamvoy.repository.OrderRepository;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.times;

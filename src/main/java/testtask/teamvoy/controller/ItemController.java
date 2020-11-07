@@ -29,7 +29,7 @@ public class ItemController {
     @GetMapping
     public List<ItemResponseDto> buyItem(@RequestParam String name, @RequestParam Long quantity) {
         return itemService.getAllNeededCheapItem(name, quantity).stream()
-                .map(itemMapper::mapItemTODto)
+                .map(itemMapper::mapItemToDto)
                 .collect(Collectors.toList());
     }
 

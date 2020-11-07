@@ -42,7 +42,7 @@ public class ItemServiceImpl implements ItemService {
         long foundQuantity = 0;
         while (foundQuantity < quantity) {
             Optional<Item> itemOptional = getCheapItem(name);
-            if(itemOptional.isEmpty()) {
+            if (itemOptional.isEmpty()) {
                 return items;
             }
             Item item = itemOptional.get();
