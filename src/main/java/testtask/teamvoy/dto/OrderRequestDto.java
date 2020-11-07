@@ -5,6 +5,15 @@ public class OrderRequestDto {
     private Integer quantity;
     private Long itemId;
 
+    public OrderRequestDto() {
+    }
+
+    public OrderRequestDto(Long price, Integer quantity, Long itemId) {
+        this.price = price;
+        this.quantity = quantity;
+        this.itemId = itemId;
+    }
+
     public Long getPrice() {
         return price;
     }

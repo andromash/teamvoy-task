@@ -5,6 +5,15 @@ public class ItemRequestDto {
     private Long quantity;
     private Long price;
 
+    public ItemRequestDto() {
+    }
+
+    public ItemRequestDto(String name, Long quantity, Long price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
