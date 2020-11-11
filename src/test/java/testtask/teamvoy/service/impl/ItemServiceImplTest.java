@@ -53,7 +53,7 @@ class ItemServiceImplTest {
     @Test
     void getAllNeededCheapItem() {
         when(itemRepository.findByName(banana.getName())).thenReturn(List.of(banana));
-        List<Item> allNeededCheapItem = itemService.getAllNeededCheapItem(banana.getName(), 10L);
+        List<Item> allNeededCheapItem = itemService.getAllNeededCheapestItem(banana.getName(), 10L);
         Assert.assertEquals(BANANA_LIST_SIZE, allNeededCheapItem.size());
         verify(itemRepository, times(1)).findByName(banana.getName());
     }
