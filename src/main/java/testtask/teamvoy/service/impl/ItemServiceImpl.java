@@ -48,6 +48,7 @@ public class ItemServiceImpl implements ItemService {
                 result.add(goodItem);
                 item.setQuantity(available - goodItem.getQuantity());
                 repository.save(item);
+                return result;
             }
         }
         return result;
