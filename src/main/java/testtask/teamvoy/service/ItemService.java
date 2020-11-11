@@ -9,5 +9,5 @@ public interface ItemService {
 
     Item save(Item item);
 
-    List<Item> getAllNeededCheapItem(String name, Long quantity);
+    List<Item> getAllNeededCheapestItem(String name, Long quantity);
 }

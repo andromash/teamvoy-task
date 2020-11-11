@@ -30,34 +30,26 @@ public class ItemServiceImpl implements ItemService {
         return repository.save(item);
     }
 
-    private Optional<Item> getCheapItem(String name) {
-        return repository.findByName(name).stream()
-                .filter(item -> item.getQuantity() > 0)
-                .min(Comparator.comparing(Item::getPrice));
-    }
-
     @Override
-    public List<Item> getAllNeededCheapItem(String name, Long quantity) {
-        List<Item> items = new ArrayList<>();
-        long foundQuantity = 0;
-        while (foundQuantity < quantity) {
-            Optional<Item> itemOptional = getCheapItem(name);
-            if (itemOptional.isEmpty()) {
-                return items;
-            }
-            Item item = itemOptional.get();
-            Long itemQuantity = item.getQuantity();
-            if (itemQuantity >= quantity) {
-                item.setQuantity(itemQuantity - quantity);
-                items.add(item);
+    public List<Item> getAllNeededCheapestItem(String name, Long quantity) {
+        List<Item> items = repository.findAllByNameOrderByPriceAsc(name);
+        List<Item> result = new ArrayList<>();
+        int foundQuantity = 0;
+        for (Item item : items) {
+            Long available = item.getQuantity();
+            if (available > 0 && available < quantity - foundQuantity) {
+                result.add(new Item(item));
+                foundQuantity += available;
+                item.setQuantity(0L);
                 repository.save(item);
-                break;
+            } else if (available > 0 && available >= quantity - foundQuantity) {
+                Item goodItem = new Item(item);
+                goodItem.setQuantity(quantity - foundQuantity);
+                result.add(goodItem);
+                item.setQuantity(available - goodItem.getQuantity());
+                repository.save(item);
             }
-            foundQuantity = foundQuantity + itemQuantity;
-            items.add(item);
-            item.setQuantity(0L);
-            repository.save(item);
         }
-        return items;
+        return result;
     }
 }

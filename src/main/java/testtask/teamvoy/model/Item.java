@@ -19,6 +19,16 @@ public class Item {
 
     private Long quantity;
 
+    public Item() {
+    }
+
+    public Item(Item item) {
+        id = item.getId();
+        name = item.getName();
+        price = item.getPrice();
+        quantity = item.getQuantity();
+    }
+
     public Long getId() {
         return id;
     }
